@@ -70,11 +70,12 @@ public class ParticipantController {
     @GetMapping("getAll")
     public List<Participant> getAllParticipants() {
         List<Participant> found = new ArrayList<>();
-        for(Participant p : participantRepository.findAll()) {
+        for (Participant p : participantRepository.findAll()) {
             found.add(p);
         }
         return found;
     }
+
     //endpoint getByManyIds
     // TODO altDto
     @GetMapping
