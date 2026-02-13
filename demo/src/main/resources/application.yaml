@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: demo
+  datasource:
+    url: jdbc:postgresql://localhost:5432/springjava
+    username: postgres
+    password: 1234
+    driver-class-name: org.postgresql.Driver
+
+  web:
+    locale: ro
+    locale-resolver: fixed
+
+  sql:
+    init:
+      mode: always          # always | embedded | never
+      platform: postgres   # important for picking postgres scripts
+      continue-on-error: false
+      encoding: UTF-8
