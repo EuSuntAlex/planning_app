@@ -31,12 +31,12 @@ public class ParticipantController {
     }
 
     // endpoint de modificare
-    @PostMapping("/edit")
+    @PostMapping("/edit/{id}")
     public ResponseEntity<?> editParticipant(
-            @Valid @RequestBody ParticipantEditDto participant) {
+            @Valid @RequestBody ParticipantEditDto participant, @PathVariable long id) {
 
         Optional<Participant> existingParticipant =
-                participantRepository.findById(participant.getId());
+                participantRepository.findById(id);
 
         if (existingParticipant.isEmpty()) {
             return ResponseEntity

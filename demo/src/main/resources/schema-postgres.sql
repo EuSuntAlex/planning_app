@@ -15,7 +15,7 @@
  --   );
 CREATE SCHEMA IF NOT EXISTS plan;
 CREATE TABLE IF NOT EXISTS plan.participant (
-                              id SERIAL PRIMARY KEY,
+                              id serial PRIMARY KEY,
                              email VARCHAR(255) NOT NULL UNIQUE,
                              first_name VARCHAR(100) NOT NULL,
                              last_name VARCHAR(100) NOT NULL,

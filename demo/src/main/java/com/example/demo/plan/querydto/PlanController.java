@@ -30,15 +30,15 @@ public class PlanController {
         return ResponseEntity.status(HttpStatus.CREATED).body(planAddDto);
     }
     // TODO: endpoint /edit
-    @PostMapping("/edit")
-    public ResponseEntity<?> editPlan(@Valid @RequestBody PlanEditDto planEditDto) {
+    @PostMapping("/edit/{id}")
+    public ResponseEntity<?> editPlan(@Valid @RequestBody PlanEditDto planEditDto, @PathVariable Long id) {
 
-        Optional<Plan> existingPlan = planRepository.findById(planEditDto.getId());
+        Optional<Plan> existingPlan = planRepository.findById(id);
 
         if (existingPlan.isEmpty()) {
             return ResponseEntity
                     .status(HttpStatus.NOT_FOUND)
-                    .body("Plan not found with id: " + planEditDto.getId());
+                    .body("Plan not found with id: " + id);
         }
 
         Plan updatedPlan = existingPlan.get();

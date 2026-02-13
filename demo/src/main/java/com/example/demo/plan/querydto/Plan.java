@@ -8,6 +8,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
@@ -16,6 +17,7 @@ import java.time.LocalDateTime;
 
 @Setter
 @Getter
+@NoArgsConstructor
 @AllArgsConstructor
 @Table(value = "plan", schema = "plan")
 public class Plan {
@@ -30,7 +32,6 @@ public class Plan {
     String description;
     @NotNull(message = "Location is null")
     String location;
-
     public Plan(PlanAddDto planAddDto) {
         if (planAddDto.getTitle() != null && !planAddDto.getTitle().trim().isEmpty()) {
             this.title = planAddDto.getTitle().trim();
@@ -41,5 +42,6 @@ public class Plan {
         if (planAddDto.getLocation() != null && !planAddDto.getLocation().trim().isEmpty()) {
             this.location = planAddDto.getLocation().trim();
         }
+        this.createdAt = LocalDateTime.now();
     }
 }

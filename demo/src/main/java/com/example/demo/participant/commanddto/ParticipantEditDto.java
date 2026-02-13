@@ -10,7 +10,6 @@ import lombok.Setter;
 @AllArgsConstructor
 public class ParticipantEditDto {
     //TODO path variable
-    private long id;
     private String firstName;
     private String lastName;
     private String email;

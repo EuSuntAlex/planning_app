@@ -54,6 +54,7 @@ public class Participant {
             throw new IllegalArgumentException("Last name is required");
         }
         this.lastName = participantAddDto.getLastName().trim();
+        this.createdAt = LocalDateTime.now();
     }
 
     // required by Spring Data JDBC

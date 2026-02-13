@@ -8,7 +8,6 @@ import lombok.Setter;
 @Getter
 @AllArgsConstructor
 public class PlanEditDto {
-    long id;
     String title;
     String description;
     String location;
